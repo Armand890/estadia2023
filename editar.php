@@ -31,16 +31,33 @@ if (isset($_GET['id'])) {
 }
 if (isset($_POST['modificar'])) {
     $id = $_GET['id'];
-    $expendiente= $_POST['expendiente'];
+    $expendiente = $_POST['expendiente'];
     $nombre = $_POST['nombre'];
-    
-  
-    $query = "UPDATE registro set expendiente = '$expendiente', nombre = '$nombre' WHERE id=$id";
+    $matricula = $_POST['matricula'];
+    $edad = $_POST['edad'];
+    $edocivil = $_POST['edocivil'];
+    $sexo = $_POST['sexo'];
+    $domicilio = $_POST['domicilio'];
+    $fecnac = $_POST['fecnac'];
+    $telefono = $_POST['telefono'];
+    $ocupacion = $_POST['ocupacion'];
+    $l_o = $_POST['l_o'];
+    $l_r = $_POST['l_r'];
+    $t_r = $_POST['t_r'];
+    $escolaridad = $_POST['escolaridad'];
+    $religion = $_POST['religion'];
+    $consultas = $_POST['consultas'];
+    $tiempo_tratamineto = $_POST['tiempo_tratamineto'];
+
+    $query = "UPDATE registro set expendiente = '$expendiente', nombre = '$nombre', matricula = '$matricula',
+     edad = '$edad', edocivil = '$edocivil', sexo = '$sexo', domicilio = '$domicilio', fecnac = '$fecnac',
+      telefono = '$telefono',ocupacion = '$ocupacion', l_o = '$l_o', l_r = '$l_r', t_r = '$t_r',
+       escolaridad = '$escolaridad', religion = '$religion', consultas = '$consultas', tiempo_tratamineto = '$tiempo_tratamineto' WHERE id=$id";
     mysqli_query($conn, $query);
     $_SESSION['message'] = 'ACTUALIZADO';
     $_SESSION['message_type'] = 'warning';
     header('Location: index.php');
-  }
+}
 
 ?>
 <?php include("includes/header.php") ?>
