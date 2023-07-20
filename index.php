@@ -1,11 +1,10 @@
 <?php include('db.php') ?>
 
 <?php include("includes/header.php") ?> <!--para modificar encabezado-->
-<div class="container p-4">
+<div class="container-fluid">
 
     <div class="row">
-
-        <div class="col-md-3">
+        <div class="col-md-3 position-absolute top-20 start-20%">
 
             <?php if (isset($_SESSION['message'])) { ?>
 
@@ -13,6 +12,7 @@
                     <?= $_SESSION['message'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+            
                 <?php session_unset();
             } ?>
 
@@ -91,9 +91,13 @@
             </div>
 
         </div>
-        <div class="col-md-6">
+      
+
+             
+        <div class="col-md-5">
             <table class="table table-bordered">
                 <thead>
+            
                     <tr>
                         <th>Fecha</th>
                         <th>No.expediente</th>
@@ -180,11 +184,11 @@
                                 <?php echo $row['tiempo_tratamineto'] ?>
                             </td>
                             <td>
-                                <a href="editar.php?id=<?php echo $row['id'] ?>">
-                                    Editar
+                                 <a href="editar.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
+                                    <i class="fas fa-marker"></i>
                                 </a>
-                                <a href="eliminar.php?id=<?php echo $row['id'] ?>">
-                                    Borrar
+                                <a href="eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
 
